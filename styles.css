@@ -1,0 +1,19 @@
+.hero {
+    background-image: url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    background-position: center;
+}
+
+.book-card {
+    transition: transform 0.2s;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+.contact{
+    background-color: aqua;
+}
+.body{
+    background-color: blanchedalmond;
+}

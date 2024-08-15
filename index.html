@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pragati Bookstore</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<style>
+		.col-md-3 img {
+			width: 100%;
+			transition: .5s all ease-in-out;
+		}
+
+		.col-md-3:hover img {
+			transform: scale(1.05);
+		}
+
+		.marquee {
+			overflow: hidden;
+			white-space: nowrap;
+			box-sizing: border-box;
+		}
+
+		.marquee p {
+			display: inline-block;
+			padding-left: 100%; /* Start off the screen */
+			animation: marquee 10s linear infinite; /* Adjust duration as needed */
+		}
+
+		@keyframes marquee {
+			0% {
+				transform: translate(0, 0);
+			}
+			100% {
+				transform: translate(-100%, 0); /* Move off the left side */
+			}
+		}
+	</style>
+</head>
+
+<body class="bg-light">
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f1f3f5;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">
+				<img src="./image/Pragati_Book_Logo.png" alt="" width="200" height="54">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#contact">Contact</a>
+					</li>
+					<li class="nav-item">
+						<form class="d-flex">
+							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<header class="hero text-white text-center py-5" style="background-color: #2d95e6;">
+		<div class="container">
+			<h1 class="display-4 fw-bold fst-italic">Welcome to Pragati Online Bookstore</h1>
+			<p class="lead">Explore a wide range of books across various genres.</p>
+			<a href="#books" class="btn btn-light btn-lg">Shop Now</a>
+		</div>
+	</header>
+
+	<!-- Marquee Notification -->
+	<div class="container mt-3">
+		<div class="marquee bg-white p-3 border rounded">
+			<p class="text-center"><strong>Good news!</strong> Enjoy <strong>Free Delivery</strong> on all orders over Rs.999!</p>
+		</div>
+	</div>
+
+	<!-- Books Section -->
+	<section id="books" class="py-5" style="background-color: #bdc8d0;">
+		<div class="container">
+			<h2 class="text-center mb-4">Featured Books</h2>
+			<div class="row" id="book-list">
+				<!-- Books will be dynamically inserted here -->
+			</div>
+		</div>
+	</section>
+
+	<script>
+		const books = [
+			{
+				title: "HOW TO WIN FRIENDS",
+				author: "Dale Carnegie",
+				price: "Rs.1200",
+				image: "https://m.media-amazon.com/images/I/71JeBwdtGAL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "The Mountain Is You: Self-Sabotage Into Self-Mastery",
+				author: "Brianna Wiest",
+				price: "Rs.1000",
+				image: "https://m.media-amazon.com/images/I/61xivWmExiL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "Don't Believe Everything You Think (English)",
+				author: "Joseph Murphy",
+				price: "Rs.670",
+				image: "https://m.media-amazon.com/images/I/715qi-cIbML._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "Dopamine Detox: Get Your Brain to Do Hard Things",
+				author: "Rithvik Singh",
+				price: "Rs.1570",
+				image: "https://m.media-amazon.com/images/I/712K3sdLlRL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "Days at the Morisaki Bookshop",
+				author: "Satoshi Yagisawa",
+				price: "Rs.1800",
+				image: "https://m.media-amazon.com/images/I/71xxddxprOL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "11 Rules For Life: Secrets to Level Up Paperback",
+				author: "Chetan Bhagat",
+				price: "Rs.1670",
+				image: "https://m.media-amazon.com/images/I/61E0unKRIZL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "Hinduism - Ritual, Reason and Beyond | 5000 years of wisdom explained",
+				author: "Ashok Mishra",
+				price: "Rs.950",
+				image: "https://m.media-amazon.com/images/I/71VnvAwOANL._AC_UL960_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "The Psychology of Money: Secrets to Level Up",
+				author: "Morgan Housel",
+				price: "Rs.790",
+				image: "https://m.media-amazon.com/images/I/41mxvU9Tu6L._SY445_SX342_.jpg",
+			},
+			{
+				title: "The Housemaid: An addictive psychological thriller",
+				author: "Freida McFadden",
+				price: "Rs.670",
+				image: "https://m.media-amazon.com/images/I/81keZ6LpNWL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "Three Thousand Stitches: Ordinary People",
+				author: "Murty Sudha",
+				price: "Rs.800",
+				image: "https://m.media-amazon.com/images/I/81beaZVtFML._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "The Four Agreements: 5000 years of wisdom explained",
+				author: "Don Miguel Ruiz",
+				price: "Rs.1150",
+				image: "https://m.media-amazon.com/images/I/91AfEwKjDgL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+			{
+				title: "The Girl Who Drank the Moon",
+				author: "Kelly Barnhill",
+				price: "Rs.999",
+				image: "https://m.media-amazon.com/images/I/7138zaESFhL._AC_UY327_FMwebp_QL65_.jpg",
+			},
+		];
+
+		const bookList = document.getElementById("book-list");
+
+		const bookListHTML = books.map(book => `
+			<div class="col-md-3 mb-4">
+				<div class="card book-card">
+					<img src="${book.image}" class="card-img-top" alt="${book.title}">
+					<div class="card-body">
+						<h5 class="card-title">${book.title}</h5>
+						<p class="card-text">Author: ${book.author}</p>
+						<p class="card-text text-success">${book.price}</p>
+						<a href="#" class="btn btn-primary">Buy Now</a>
+					</div>
+				</div>
+			</div>
+		`).join('');
+
+		bookList.innerHTML = bookListHTML;
+	</script>
+
+	<!-- About Section -->
+	<section id="about" class="container mt-5 bg-light p-4">
+		<h2 class="text-decoration-underline text-center">About Us</h2>
+		<p class="fst-italic">We are a passionate team of book lovers dedicated to providing the best selection of
+			books. Our bookstore offers a wide variety of genres including fiction, non-fiction, science, fantasy, and
+			more. We believe that reading opens up a world of possibilities and we strive to help our customers find the
+			perfect book for their next adventure. An online book store is a web application that allows customers to buy
+			books online. Customers can search for a book by title or author using a web browser, add it to their
+			shopping cart, and then purchase it using a debit or credit card transaction. A bookstore is a shop that
+			sells books, and where people can buy them. A used bookstore or second-hand bookshop sells and often buys
+			used books.
+
+			A book shop is a place where different kinds of textbooks or reference books are sold. It is a very
+			important place for all especially for the students. Generally a book shop is situated near school, college
+			or a stationary market place. There are kept many shelves on which the books are nicely arranged. The books
+			are categorized according to the types. We can buy text book, story book, dictionary, pen, pencil, rubber
+			etc. also from it. A bookseller is always available to serve the customers. A bookshop provides us with
+			facilities to expand our knowledge.</p>
+		<p>Come visit us or browse our online collection to discover your next great read!</p>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="container mt-5 p-4" style="background-color: rgb(217, 231, 231);">
+		<h2 class="text-primary">Contact Us</h2>
+		<form>
+			<div class="mb-3">
+				<label for="name" class="form-label">Name</label>
+				<input type="text" class="form-control" id="name" placeholder="Your Name" required>
+			</div>
+			<div class="mb-3">
+				<label for="email" class="form-label">Email</label>
+				<input type="email" class="form-control" id="email" placeholder="Your Email" required>
+			</div>
+			<div class="mb-3">
+				<label for="message" class="form-label">Message</label>
+				<textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Send Message</button>
+		</form>
+	</section>
+
+	<!-- Footer -->
+	<footer class="text-center text-lg-start text-muted mt-5" style="background-color: #d3dbe0;">
+		<div class="container p-1" >
+			<div class="row">
+				<div class="col-lg-4 col-md-4 mb-4">
+					<h5 class="text-uppercase">Categories</h5>
+					<ul class="list-unstyled">
+						<li><a href="https://pragationline.com/pharmacy/">Pharmacy</a></li>
+						<li><a href="https://www.pragationline.com/chemical-engineering/">Chemical Engineering</a></li>
+						<li><a href="https://pragationline.com/competitive-exam-preparation-books-entrance/">Competitive Exam Books</a></li>
+						<li><a href="https://pragationline.com/books-at-flat-rs-50/">Books for Flat Rs. 50</a></li>
+						<li><a href="https://pragationline.com/book-at-rs-100/">Books for Flat Rs. 100</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-4 mb-4">
+					<h5 class="text-uppercase">Information</h5>
+					<ul class="list-unstyled">
+						<li><a href="https://www.pragationline.com/terms-and-conditions/">Terms &amp; Conditions</a></li>
+						<li><a href="https://www.pragationline.com/privacy-policy/">Privacy Policy</a></li>
+						<li><a href="https://www.pragationline.com/cancellation-and-return-policy/">Cancellation &amp; Refund Policy</a></li>
+						<li><a href="https://www.pragationline.com/shipping-and-return-policy/">Shipping Policy</a></li>
+						<li><a href="https://www.pragationline.com/faq/">FAQs</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-4 mb-4">
+					<h5 class="text-uppercase">Contact</h5>
+					<p><a href="https://www.google.co.in/maps/place/Abhyudaya+Pragati+Apartment/@18.5238015,73.8492788,19.25z/data=!4m5!3m4!1s0x3be7ce114244c52b:0xe25b867efa41ce03!8m2!3d18.5238352!4d73.8497406?hl=en">157, Budhwar Peth,<br> ABC Chowk,<br> Opp. Ratan Talkies,<br> Pune 411005,<br> Maharashtra, India.</a></p>
+					<p><a class="footer-email" href="mailto:info@pragationline.com">info@pragationline.com</a><br>
+						<a class="footer-mobileno" href="tel:+919890997939">+91 9890997939</a>
+					</p>
+				</div>
+			</div>
+			<p class="text-center bg-light">© 2024 Pragati Bookstore. All rights reserved.</p>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
